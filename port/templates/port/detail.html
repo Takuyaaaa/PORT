@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block content %}
+<header>
+  <h1>{{security.des}} <a href="{% url 'port:des_edit' security.id %}" class='btn btn-link'>Edit Description info</a></h1>
+  <br>
+  <h4><span class='price'>Price : {{security.price}}</span> Position  : {{security.position}}</h4>
+  <br>
+</header>
+  <h5>Asset Class : {{security.asset}}</h5>
+  <div class=description>
+    <hr color='	navy' noshade>
+    <p>Sector : {{description.sector}}</p>
+    <p>Country : {{description.country}}</p>
+    <br>
+    <p>[Business Overview]</p>
+    <p>{{description.business}}</p>
+  </div>
+  <div class="button">
+    <!--adminとしてログインしてる時のみ銘柄の編集、削除ボタンを表示-->
+    {% if user.is_authenticated %}
+      <p>
+      <a href="{% url 'port:edit' security.id %}" class='btn btn-outline-primary'>Rebalance</a>
+      <a href="{% url 'port:confirm_delete' security.id %}" class='btn btn-outline-primary'>Remove</a>
+      </p>
+    {% endif %}
+    <p><a href="{% url 'port:index' %}" class='btn btn-outline-secondary btn-sm'>Back</a></p>
+  </div>
+</main>
+{% endblock %}

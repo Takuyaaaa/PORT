@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous'>
+        <style>
+            body {padding-top: 100px;}
+            .search-button{text-align: right;}
+            .price {margin-right : 30px;}
+            .table {
+              text-align:center;
+              max-width: 100%;
+            }
+            html {
+              max-width: 100%;
+              margin: 0 auto;
+            }
+            main{
+              padding-top: 30px;
+            }
+            .button{
+              padding-top: 50px;
+            }
+            .navbar-nav{text-align:left;}
+          @media (max-width:767px){
+            html{
+              width:auto;
+            }
+          }
+        </style>
+        <title>PORT</title>
+    </head>
+    <body>
+        <nav class='navbar navbar-expand navbar-dark bg-dark fixed-top'>
+            <a class='navbar-brand' href='{% url "port:index" %}'>PORT</a>
+            <ul class='navbar-nav'>
+                {% if user.is_authenticated %}
+                    <li class='nav-itme'>
+                        <span class='navbar-text'>{{ user }} - </span>
+                    </li>
+                    <li class='nav-item'>
+                        <a href='{% url "logout" %}' class='logout nav-link'>Logout</a>
+                    </li>
+                {% else %}
+                    <li class='nav-itme'>
+                      <a href='{% url "login" %}' class='login nav-link'>Login</a>
+                    </li>
+                    <li class='nav-item'>
+                      <a href='{% url "accounts:signup" %}' class='signup nav-link'>Sign Up</a>
+                    </li>
+                {% endif %}
+            </ul>
+            </dlv>
+        </nav>
+        <div class='container'>
+            {% block content %}
+            {% endblock %}
+       </div>
+    </body>
+</html>

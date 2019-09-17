@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block content %}
+<header>
+    <h1>Port Management</h1>
+    <br>
+    {% if searchform %}
+      <form action = '{% url "port:index" %}' method='get'>
+        <div class = 'form-group'>
+          <p>{{searchform}}</p>
+          <p class=search-button>
+            <input type = 'submit' class = 'btn btn-outline-primary' value='Search'>
+            <a href="{% url 'port:index' %}" class='btn btn-outline-secondary'> Clear</a>
+          </p>
+        </div>
+      </form>
+    {% endif %}
+</header>
+<main>
+    <div class='table'>
+    <table class='table table-hover'>
+      <tr>
+        <th>Security</th><th>Asset</th><th>Price</th><th>Position</th>
+      </tr>
+      {% for security in securities %}
+        <tr>
+          <td><a href="{% url 'port:detail' security.pk %}">{{security.des}}</a></td>
+          <td>{{security.asset}}</td>
+          <td>{{security.price}}</td>
+          <td>{{security.position}}</td>
+        </tr>
+      {% endfor %}
+    </table>
+    </div>
+    <!--adminとしてログインしてる時のみ銘柄の追加ボタンを表示-->
+    {% if user.is_authenticated %}
+        <div class="button">
+            <p><a href="{% url 'port:new' %}" class='btn btn-outline-primary' >Add</a></p>
+        </div>
+    {% endif %}
+</main>
+{% endblock %}

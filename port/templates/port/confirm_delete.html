@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+<header>
+    <h1>Remove "{{security}}" from Port </h1>
+    <p><b>ARE YOU SURE TO REMOVE THE SECURITY FROM YOUR PORTFOLIO?</b></p>
+</header>
+<main>
+    <form action='' method='post'>
+      {% csrf_token %}
+      <div class="button">
+        <p><a href="{% url 'port:delete' security.id %}" class='btn btn-outline-primary'>Remove</a></p>
+        <p><a href="JavaScript:history.back()"class='btn btn-outline-secondary btn-sm'>Back</a></p>
+      </div>
+    </form>
+</main>
+{% endblock %}

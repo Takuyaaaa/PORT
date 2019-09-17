@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<header>
+    <h1>{{message}}</h1>
+</header>
+<main>
+    <form action='{% url "port:des_update" security.name_id %}' method='post' class='form'>
+      {% csrf_token %}
+      {% bootstrap_form des_updateForm layout='horizontal' %}
+      <div class="button">
+        <p><button type='submit' class='btn btn-outline-primary'> Save </button></p>
+        <p><a href="{% url 'port:detail' security.name_id %}" class = 'btn btn-outline-secondary btn-sm'>Back</a></p>
+      </div>
+    </form>
+</main>
+{% endblock %}

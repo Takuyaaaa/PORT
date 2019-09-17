@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<header>
+    <h1>{{message}}</h1>
+</header>
+<main>
+    <form action='{% url "port:create" %}' method='post' class='form'>
+      {% csrf_token %}
+      {% bootstrap_form securityForm layout='horizontal' %}
+      <div class="button">
+        <p><button type='submit' class='btn btn-outline-primary'> Add </button></p>
+        <p><a href="{% url 'port:index' %}" class = 'btn btn-outline-secondary btn-sm'>Back</a></p>
+      </div>
+    </form>
+</main>
+{% endblock %}

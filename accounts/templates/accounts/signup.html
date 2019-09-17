@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>Sign Up</h1>
+<section class='common-form'>
+    <form method='post'>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type='submit' class='btn btn-outline-primary'>SIgn Up</button>
+    </form>
+</section>
+{% endblock %}
