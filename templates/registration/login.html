@@ -6,7 +6,7 @@
     {% if form.errors %}
         <p class='error-msg'>Your username and password didn't match. Please try again.</p>
     {% endif %}
-
+    <!--未実装：アドミン権限ユーザーのみがポートフォリオ編集をできるような仕様-->
     {% if next %}
         {% if user.is_authenticated %}
             <p class='error-msg'>Your account doesn't have access to this page. To proceed,
