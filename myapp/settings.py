@@ -14,7 +14,7 @@ SECRET_KEY = 't+sgq!5vvi0tbgvapt=4a=sby2-+&^xdqr-_ra&%!xip)_2cm6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1","3.114.106.61"]
+ALLOWED_HOSTS = ["127.0.0.1","3.114.106.61","portapp.xyz"]
 
 
 # Application definition
